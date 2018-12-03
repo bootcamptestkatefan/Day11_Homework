@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 
 class Counter extends Component {
-  constructor() {
-    super()
-    this.state = {number: 0}
+  constructor(props) {
+    super(props)
+    this.state = {
+      input:""
+    };
   }
-  increase=() => {
-    this.props.onUpdate(1)
-    this.setState({number: this.state.number+1})
-  }
-  decrease=() => {
-    this.props.onUpdate(-1)
-    this.setState({number: this.state.number-1})
+  clickAddNew=() => {
+    this.props.onUpdate(this.state.input)
+    this.setState({input:""})
   }
   render() {
     return (
       <div>
-        <button>add new</button>
+        <button onClick ={this.clickAddNew}>add new</button>
         <input type="text"></input>
+        <form className="App" ></form>
       </div>
     );
   }
